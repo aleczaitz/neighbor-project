@@ -3,6 +3,7 @@ import { find_available_listings } from './src/find_available_listings.js';
 
 const app = express();
 app.use(express.json());
+app.set('json spaces', 2);  // Pretty-print JSON responses
 
 
 // Post endpoint to handle incoming JSON data

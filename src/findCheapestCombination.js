@@ -1,4 +1,6 @@
-export function findCheapestCombination(listings, items) {
+import { canFitVehicles } from './canFitVehicles.js';
+
+function findCheapestCombination(listings, items) {
     // Try to find the cheapest combination of listings that can fit all vehicles
     // We need to try different combinations and find the one with minimum total price
     
@@ -35,3 +37,4 @@ export function findCheapestCombination(listings, items) {
 
     return bestCombination; // returns a json object with the listing_ids and total_price
 }
+export { findCheapestCombination };

@@ -6,7 +6,7 @@ import { findCheapestCombination } from './findCheapestCombination.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-function find_available_listings(vehicles_data) {
+function findAvailableListings(vehicles_data) {
     const items = [];
 
     // Convert vehicles data to array of vehicle lengths
@@ -53,5 +53,5 @@ function find_available_listings(vehicles_data) {
     return results;
 }
 
-export { find_available_listings };
+export { findAvailableListings };
 
