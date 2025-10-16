@@ -5,6 +5,10 @@ const app = express();
 app.use(express.json());
 app.set('json spaces', 2);  // Pretty-print JSON responses
 
+// Health check endpoint for Elastic Beanstalk
+app.get('/', (req, res) => {
+    res.status(200).json({ status: 'healthy' });
+});
 
 // Post endpoint to handle incoming JSON data
 app.post('/', (req, res) => {
