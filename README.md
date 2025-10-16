@@ -17,14 +17,14 @@ Test the different algorithims by running `node test-algorithms.js`
 
 Test the endpoint
 ```bash
-    curl -X POST "http://my-api-env.eba-tmfkskbp.us-east-1.elasticbeanstalk.com" \
-        -H "Content-Type: application/json" \
-        -d '[
-                {
-                    "length": 10,
-                    "quantity": 1
-                }
-            ]'
+curl -X POST "http://my-api-env.eba-tmfkskbp.us-east-1.elasticbeanstalk.com" \
+   -H "Content-Type: application/json" \
+   -d '[
+            {
+               "length": 10,
+               "quantity": 1
+            }
+      ]'
 ```
 
 ## Test Results
