@@ -1,6 +1,7 @@
 import { firstFitFixedBins } from './firstFitFixedBins.js';
+import { bestFitFixedBins } from './bestFitFixedBins.js';
 
-function canFitVehicles(selectedListings, items) {
+function canFitVehicles(selectedListings, items, algorithm = 'best-fit') {
     // Check if the given listings can fit all vehicles
     // Each listing provides multiple "rows" (width / 10)
     // Each row can fit vehicles along its length using bin packing
@@ -18,7 +19,11 @@ function canFitVehicles(selectedListings, items) {
         }
     }
     
-    // Try to fit all vehicles into these rows using first-fit decreasing
-    return firstFitFixedBins(items, rowCapacities);
+    // Choose algorithm
+    if (algorithm === 'first-fit') {
+        return firstFitFixedBins(items, rowCapacities);
+    } else {
+        return bestFitFixedBins(items, rowCapacities);
+    }
 }
 export { canFitVehicles };
