@@ -11,7 +11,7 @@ class Bin:
         return items_sum
     
     def is_full(self):
-        return self.current_wieght >= self.capacity
+        return self.current_weight >= self.capacity
     
     def can_fit(self, item):
         remainder = self.capacity - self.current_weight
@@ -20,7 +20,7 @@ class Bin:
     def add_item(self, item):
         if self.can_fit(item):
             self.items.append(item)
-            self.current_weight = self.calc_curr_weight()
+            self.current_weight += item
         else:
             raise Exception("Tried to fit item where it can't fit")
         
