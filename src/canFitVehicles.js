@@ -1,7 +1,8 @@
 import { firstFitFixedBins } from './firstFitFixedBins.js';
 import { bestFitFixedBins } from './bestFitFixedBins.js';
+import { exactFitFixedBins } from './exactFitFixedBins.js';
 
-function canFitVehicles(selectedListings, items, algorithm = 'best-fit') {
+function canFitVehicles(selectedListings, items, algorithm = 'exact-fit') {
     // Check if the given listings can fit all vehicles
     // Each listing provides multiple "rows" (width / 10)
     // Each row can fit vehicles along its length using bin packing
@@ -10,7 +11,7 @@ function canFitVehicles(selectedListings, items, algorithm = 'best-fit') {
     const rowCapacities = [];
     
     for (const listing of selectedListings) {
-        const numRows = listing.width / 10;
+        const numRows = Math.floor(listing.width / 10); // Just in case there is a listing that is not divisible by 10
         const rowLength = listing.length;
         
         // Add this many rows with this capacity
@@ -22,8 +23,10 @@ function canFitVehicles(selectedListings, items, algorithm = 'best-fit') {
     // Choose algorithm
     if (algorithm === 'first-fit') {
         return firstFitFixedBins(items, rowCapacities);
-    } else {
+    } else if (algorithm === 'best-fit') {
         return bestFitFixedBins(items, rowCapacities);
+    } else {
+        return exactFitFixedBins(items, rowCapacities);
     }
 }
 export { canFitVehicles };

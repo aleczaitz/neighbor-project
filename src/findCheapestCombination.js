@@ -1,6 +1,6 @@
 import { canFitVehicles } from './canFitVehicles.js';
 
-function findCheapestCombination(listings, items) {
+function findCheapestCombination(listings, items, algorithm = 'exact-fit') {
     // Try to find the cheapest combination of listings that can fit all vehicles
     // We need to try different combinations and find the one with minimum total price
     
@@ -24,7 +24,7 @@ function findCheapestCombination(listings, items) {
         }
         
         // Check if this combination can fit all vehicles
-        if (canFitVehicles(selectedListings, items)) { // ex: selectedListings = [1, 0, 1] and items = [item1, item2, item3]
+        if (canFitVehicles(selectedListings, items, algorithm)) { // ex: selectedListings = [1, 0, 1] and items = [item1, item2, item3]
             if (totalPrice < minPrice) {
                 minPrice = totalPrice;
                 bestCombination = {

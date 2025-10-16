@@ -1,6 +1,6 @@
 import express from 'express';
 import { performance } from 'perf_hooks';
-import { find_available_listings } from './src/find_available_listings.js';
+import { findAvailableListings } from './src/findAvailableListings.js';
 
 
 const app = express();
@@ -17,7 +17,7 @@ app.post('/', (req, res) => {
     try {
         const inputData = req.body;
         const start = performance.now();
-        const result = find_available_listings(inputData);
+        const result = findAvailableListings(inputData);
         const end = performance.now();
         const elapsed = end - start;
         
