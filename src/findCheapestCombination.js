@@ -1,8 +1,14 @@
 import { canFitVehicles } from './canFitVehicles.js';
 
+/**
+ * Finds the cheapest combination of listings that can fit all vehicles
+ * Uses brute force to try all possible subset combinations (2^n complexity)
+ * @param {Array<Object>} listings - Array of listing objects with id, price_in_cents, width, and length
+ * @param {Array<number>} items - Array of vehicle lengths to fit
+ * @param {string} algorithm - Bin packing algorithm to use: 'first-fit', 'best-fit', or 'exact-fit' (default)
+ * @returns {Object|null} - Object with listing_ids and total_price, or null if no valid combination exists
+ */
 function findCheapestCombination(listings, items, algorithm = 'exact-fit') {
-    // Try to find the cheapest combination of listings that can fit all vehicles
-    // We need to try different combinations and find the one with minimum total price
     
     let bestCombination = null;
     let minPrice = Infinity;

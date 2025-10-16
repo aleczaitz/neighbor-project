@@ -6,6 +6,11 @@ import { findCheapestCombination } from './findCheapestCombination.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+/**
+ * Finds all available locations that can fit the given vehicles and returns them sorted by price
+ * @param {Array<Object>} vehicles_data - Array of vehicle objects with length and quantity properties
+ * @returns {Array<Object>} - Array of results sorted by price, each containing location_id, listing_ids, and total_price_in_cents
+ */
 function findAvailableListings(vehicles_data) {
     const items = [];
 
