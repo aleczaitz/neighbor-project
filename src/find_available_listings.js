@@ -1,5 +1,10 @@
 import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 import { first_fit_decreasing } from './first_fit.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 function find_available_listings(vehicles_data) {
     const items = [];
@@ -11,8 +16,9 @@ function find_available_listings(vehicles_data) {
     }
 
     // Read the listings json
+    const listingsPath = join(__dirname, '..', 'listings.json');
     const listings_data = JSON.parse(
-        readFileSync('listings.json', 'utf-8')
+        readFileSync(listingsPath, 'utf-8')
     );
 
     const available_listings = [];
