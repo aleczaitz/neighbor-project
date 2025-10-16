@@ -13,6 +13,20 @@ Find available parking locations that fit multiple vehicles and return them sort
 
 All use decreasing order sort (largest items first).
 
+Test the different algorithims by running `node test-algorithms.js`
+
+Test the endpoint
+```bash
+    curl -X POST "http://my-api-env.eba-tmfkskbp.us-east-1.elasticbeanstalk.com" \
+        -H "Content-Type: application/json" \
+        -d '[
+                {
+                    "length": 10,
+                    "quantity": 1
+                }
+            ]'
+```
+
 ## Test Results
 
 365 locations tested across 3 scenarios:
