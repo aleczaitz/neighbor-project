@@ -1,5 +1,7 @@
 import express from 'express';
+import { performance } from 'perf_hooks';
 import { find_available_listings } from './src/find_available_listings.js';
+
 
 const app = express();
 app.use(express.json());
@@ -14,8 +16,13 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
     try {
         const inputData = req.body;
+        const start = performance.now();
         const result = find_available_listings(inputData);
+        const end = performance.now();
+        const elapsed = end - start;
+        
         res.json(result);
+        console.log(`Request processed in ${elapsed.toFixed(2)}ms`);
     } catch (error) {
         console.error("Error:", error);
         res.status(500).json({ error: error.message });
